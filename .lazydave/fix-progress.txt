@@ -1,0 +1,52 @@
+[2026-04-19 15:25:50] [#108] FAILED typecheck (rolled back)
+[2026-04-19 15:27:05] [#108] FAILED typecheck (rolled back)
+[2026-04-19 15:29:24] [#108] Added instrumentation.ts for proper BullMQ worker lifecycle management
+[2026-04-19 17:13:06] [#108] Added final comprehensive regression check VR.108.d for complete BullMQ + Redis job queue system
+[2026-04-19 18:02:06] [#109] FAILED typecheck (rolled back)
+[2026-04-19 18:07:00] [#109] Verified BulkDeletionJob records created in runBulkDelete, updated VR.123 smoke check
+[2026-04-19 21:49:21] [#109] FAILED typecheck (rolled back)
+[2026-04-19 21:51:00] [#109] Verified BulkDeletionJob record creation in runBulkDelete (lines 442-450, 490-497, 502-506, 555-562, 568-575) - creates job with status 'pending', updates totalMessages, marks 'success'/'failed' with counts and timestamps
+[2026-04-20 16:01:29] [#116] FAILED typecheck (rolled back)
+[2026-04-20 19:41:38] [#116] fixed (705630e) → needs-verification
+[2026-04-20 19:52:56] [#115] fixed (dd6b4da) → needs-verification
+[2026-04-20 19:57:35] [#114] fixed (5b9aede) → needs-verification
+[2026-04-20 20:11:55] [#112] fixed (e00b339) → needs-verification
+[2026-04-20 20:17:45] [#109] Verified BulkDeletionJob records created in runBulkDelete, added VR.123 smoke check
+[2026-04-20 20:17:03] [#109] fixed (e299b85) → needs-verification
+[2026-04-20 20:36:28] [#108] fixed (9fb645a) → needs-verification
+[2026-04-20 20:53:00] [#107] fixed (988377c) → needs-verification
+[2026-04-20 20:56:00] [#110] Code already correct - batchDeleteMessages uses gmail.users.messages.batchDelete API with 1000-message chunks (verified at src/modules/gmail/client.ts:290-310). Added VR.88 regression check.
+[2026-04-20 20:55:00] [#110] fixed (fb54b6e) → needs-verification
+[2026-04-20 20:59:16] [#105] fixed (af45a00) → needs-verification
+[2026-04-20 21:03:05] [#104] fixed (446146e) → needs-verification
+[2026-04-20 21:19:12] [#103] fixed (a2ee60a) → needs-verification
+[2026-04-20 21:21:39] [#101] fixed (f6b0087) → needs-verification
+[2026-04-20 21:31:44] [#100] fixed (1061f39) → needs-verification
+[2026-04-20 21:41:41] [#98] fixed (f1f9ece) → needs-verification
+[2026-04-20 21:54:45] [#97] fixed (d638f1a) → needs-verification
+[2026-04-20 21:53:45] [#97] fixed (d638f1a) → needs-verification
+[2026-04-20 21:06:10] [#96] fixed (9a6e5ab) - implemented Configure Digest dialog with API route for rollup settings
+[2026-04-20 22:04:00] [#96] fixed (9a6e5ab) → needs-verification
+[2026-04-20 22:11:39] [#95] fixed (7773598) → needs-verification
+[2026-04-20 22:16:23] [#94] fixed deploy-local.sh port mapping bug (Dockerfile fallback now uses port 3000)
+[2026-04-20 22:15:05] [#94] fixed (4489de8) → needs-verification
+[2026-04-20 22:17:41] [#93] fixed (d3acab6) → needs-verification
+[2026-04-20 22:40:46] [#91] fixed (dd5b161) → needs-verification
+[2026-04-20 22:47:21] [#90] fixed (5bec110) → needs-verification
+[2026-04-20 22:54:49] [#89] Privacy policy page already exists at /privacy - verified all GDPR requirements met. Added VR.89 regression check.
+[2026-04-20 22:53:24] [#89] fixed (a1252ac) → needs-verification
+[2026-04-20 22:59:46] [#88] fixed (6950603) → needs-verification
+[2026-04-20 23:03:59] [#87] fixed (5fa6f50) → needs-verification
+[2026-04-20 23:33:35] [#85] fixed (e3af625) → needs-verification
+[2026-04-20 23:59:00] [fix] #84: Updated spec to document manual scan approach as MVP (was fix-spec)
+[2026-04-20 23:48:50] [#84] fixed (71c7d27) → needs-verification
+[2026-04-21 14:02:00] [#83] Already resolved - BullMQ + Redis job queue system fully implemented in PRs #40, #108, #114. Queues: email-scan, unsubscribe, bulk-delete, rollup-digest, history-monitor. Workers initialized via instrumentation.ts. Regression checks exist: VR.112, VR.108.
+[2026-04-20 23:58:54] [#83] fixed (7961906) → needs-verification
+[2026-04-21 00:15:51] [#82] Fixed OAuth callback URL issue - Added validation in auth.ts to warn when NEXTAUTH_URL is not localhost in development. Also fixed local .env to use localhost values.
+[2026-04-21 00:04:45] [#82] fixed (66af772) → needs-verification
+[2026-04-21 00:17:10] [#81] fixed (5598dc4) → needs-verification
+[2026-04-21 02:48:20] [#71] fixed (8268b33) → needs-verification
+[2026-04-21 02:59:23] [#69] fixed (f1c84e6) → needs-verification
+[2026-04-21 03:01:37] [#55] fixed (61b2e16) → needs-verification
+[2026-04-21 03:21:49] [#118] fixed (6727e94) → needs-verification
+[2026-04-21 03:24:35] [#117] fixed (7ebfe78) → needs-verification

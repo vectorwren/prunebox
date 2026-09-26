@@ -1,0 +1,149 @@
+import { PrismaClient } from '@prisma/client';
+import { PrismaPg } from '@prisma/adapter-pg';
+import { Pool } from 'pg';
+import { encrypt, decrypt } from './crypto';
+
+const globalForPrisma = globalThis as unknown as {
+  prisma: PrismaClient | undefined;
+};
+
+/**
+ * Create extended Prisma client with encryption middleware
+ * This ensures access_token and refresh_token are always encrypted at rest
+ */
+function createExtendedPrismaClient() {
+  const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+  const adapter = new PrismaPg(pool);
+  const basePrisma = new PrismaClient({
+    adapter: adapter as any,
+    log: process.env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
+  });
+
+  // Extend with encryption middleware
+  return basePrisma.$extends({
+    name: 'encryptionMiddleware',
+    query: {
+      // Encrypt tokens before writing to database
+      account: {
+        async create({ args, query }: { args: any; query: any }) {
+          if (args.data) {
+            if (args.data.access_token) {
+              args.data.access_token = await encrypt(args.data.access_token);
+            }
+            if (args.data.refresh_token) {
+              args.data.refresh_token = await encrypt(args.data.refresh_token);
+            }
+          }
+          return query(args);
+        },
+
+        async createMany({ args, query }: { args: any; query: any }) {
+          if (args.data && Array.isArray(args.data)) {
+            for (const item of args.data) {
+              if (item.access_token) {
+                item.access_token = await encrypt(item.access_token);
+              }
+              if (item.refresh_token) {
+                item.refresh_token = await encrypt(item.refresh_token);
+              }
+            }
+          }
+          return query(args);
+        },
+
+        async update({ args, query }: { args: any; query: any }) {
+          if (args.data) {
+            if (args.data.access_token && typeof args.data.access_token === 'string') {
+              args.data.access_token = await encrypt(args.data.access_token);
+            }
+            if (args.data.refresh_token && typeof args.data.refresh_token === 'string') {
+              args.data.refresh_token = await encrypt(args.data.refresh_token);
+            }
+          }
+          return query(args);
+        },
+
+        async upsert({ args, query }: { args: any; query: any }) {
+          if (args.create) {
+            if (args.create.access_token && typeof args.create.access_token === 'string') {
+              args.create.access_token = await encrypt(args.create.access_token);
+            }
+            if (args.create.refresh_token && typeof args.create.refresh_token === 'string') {
+              args.create.refresh_token = await encrypt(args.create.refresh_token);
+            }
+          }
+          if (args.update) {
+            if (args.update.access_token && typeof args.update.access_token === 'string') {
+              args.update.access_token = await encrypt(args.update.access_token);
+            }
+            if (args.update.refresh_token && typeof args.update.refresh_token === 'string') {
+              args.update.refresh_token = await encrypt(args.update.refresh_token);
+            }
+          }
+          return query(args);
+        },
+
+        // Decrypt tokens after reading from database
+        async findMany({ args, query }: { args: any; query: any }) {
+          const result = await query(args);
+          if (Array.isArray(result)) {
+            for (const item of result) {
+              if (item.access_token) {
+                item.access_token = await decrypt(item.access_token);
+              }
+              if (item.refresh_token) {
+                item.refresh_token = await decrypt(item.refresh_token);
+              }
+            }
+          }
+          return result;
+        },
+
+        async findFirst({ args, query }: { args: any; query: any }) {
+          const result = await query(args);
+          if (result) {
+            if (result.access_token) {
+              result.access_token = await decrypt(result.access_token);
+            }
+            if (result.refresh_token) {
+              result.refresh_token = await decrypt(result.refresh_token);
+            }
+          }
+          return result;
+        },
+
+        async findUnique({ args, query }: { args: any; query: any }) {
+          const result = await query(args);
+          if (result) {
+            if (result.access_token) {
+              result.access_token = await decrypt(result.access_token);
+            }
+            if (result.refresh_token) {
+              result.refresh_token = await decrypt(result.refresh_token);
+            }
+          }
+          return result;
+        },
+
+        async findUniqueOrThrow({ args, query }: { args: any; query: any }) {
+          const result = await query(args);
+          if (result) {
+            if (result.access_token) {
+              result.access_token = await decrypt(result.access_token);
+            }
+            if (result.refresh_token) {
+              result.refresh_token = await decrypt(result.refresh_token);
+            }
+          }
+          return result;
+        },
+      },
+    },
+  }) as unknown as PrismaClient;
+}
+
+export const db =
+  globalForPrisma.prisma ??
+  createExtendedPrismaClient();
+
+if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = db;
