@@ -18,7 +18,7 @@
         "Confidence scoring (0-100 scale)"
       ],
       "regressions": [],
-      "issues_found": ["https://github.com/REDACTED/prunebox/issues/86"]
+      "issues_found": ["https://github.com/vectorwren/prunebox/issues/86"]
     },
     {
       "id": "A2",
@@ -117,7 +117,7 @@
         "UnsubscriptionAttempt model (schema.prisma:137-149) missing onDelete Cascade - audit data orphaned after user deletion",
         "BulkDeletionJob model (schema.prisma:151-163) missing onDelete Cascade - job records orphaned after user deletion"
       ],
-      "issues_found": ["https://github.com/REDACTED/prunebox/issues/92", "https://github.com/REDACTED/prunebox/issues/118"]
+      "issues_found": ["https://github.com/vectorwren/prunebox/issues/92", "https://github.com/vectorwren/prunebox/issues/118"]
     },
     {
       "id": "A8",
@@ -150,7 +150,7 @@
         "Self-host option provided as additional differentiation (homepage:59-61)"
       ],
       "regressions": [],
-      "issues_found": ["https://github.com/REDACTED/prunebox/issues/102"]
+      "issues_found": ["https://github.com/vectorwren/prunebox/issues/102"]
     },
     {
       "id": "A10",

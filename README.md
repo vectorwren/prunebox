@@ -29,7 +29,7 @@
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/REDACTED/prunebox.git
+   git clone https://github.com/vectorwren/prunebox.git
    cd prunebox
    ```
 
@@ -55,8 +55,8 @@
 ### Option 2: Pre-built Docker Image
 
 ```bash
-docker pull ghcr.io/REDACTED/prunebox:latest
-docker run -p 3000:3000 --env-file .env ghcr.io/REDACTED/prunebox:latest
+docker pull ghcr.io/vectorwren/prunebox:latest
+docker run -p 3000:3000 --env-file .env ghcr.io/vectorwren/prunebox:latest
 ```
 
 ### Option 3: Build from Source
@@ -186,7 +186,7 @@ This app uses the following Gmail scopes (all are "Restricted" and require verif
 | `:develop` | Development build (from develop branch) |
 | `:vX.Y.Z` | Versioned releases |
 
-Pull from `ghcr.io/REDACTED/prunebox`
+Pull from `ghcr.io/vectorwren/prunebox`
 
 ## 🌐 Reverse Proxy (Optional)
 

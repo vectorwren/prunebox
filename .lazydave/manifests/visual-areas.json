@@ -61,10 +61,10 @@
       "category": "ui",
       "title": "Dark mode theme toggle functionality",
       "status": "issues-found",
-      "notes": "Code-based analysis complete. ThemeProvider properly configured (src/app/layout.tsx:40): attribute='class', defaultTheme='dark', enableSystem, suppressHydrationWarning. ThemeToggle component (src/components/theme-toggle.tsx): Uses next-themes, Sun/Moon icons with smooth CSS transitions (rotate-0 scale-100 to rotate-90 scale-0), accessible with sr-only label. Design tokens (src/app/globals.css:6-50): Proper light/dark mode tokens defined. Issue found: ThemeToggle missing from rollup page (src/app/dashboard/rollup/page.tsx:49-60) and settings page (src/app/dashboard/settings/page.tsx:40-46) - inconsistent UX. Present on: landing page (page.tsx:36), signin page (auth/signin/page.tsx:63), dashboard (dashboard/page.tsx:77), privacy page (privacy/page.tsx:20). GitHub issue: https://github.com/REDACTED/prunebox/issues/117",
+      "notes": "Code-based analysis complete. ThemeProvider properly configured (src/app/layout.tsx:40): attribute='class', defaultTheme='dark', enableSystem, suppressHydrationWarning. ThemeToggle component (src/components/theme-toggle.tsx): Uses next-themes, Sun/Moon icons with smooth CSS transitions (rotate-0 scale-100 to rotate-90 scale-0), accessible with sr-only label. Design tokens (src/app/globals.css:6-50): Proper light/dark mode tokens defined. Issue found: ThemeToggle missing from rollup page (src/app/dashboard/rollup/page.tsx:49-60) and settings page (src/app/dashboard/settings/page.tsx:40-46) - inconsistent UX. Present on: landing page (page.tsx:36), signin page (auth/signin/page.tsx:63), dashboard (dashboard/page.tsx:77), privacy page (privacy/page.tsx:20). GitHub issue: https://github.com/vectorwren/prunebox/issues/117",
       "skill": null,
       "agent": null,
-      "issues_found": ["https://github.com/REDACTED/prunebox/issues/117"]
+      "issues_found": ["https://github.com/vectorwren/prunebox/issues/117"]
     },
     {
       "id": "T8",

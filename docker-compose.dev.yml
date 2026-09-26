@@ -1,6 +1,6 @@
 services:
   prunebox:
-    image: ghcr.io/REDACTED/prunebox:develop
+    image: ghcr.io/vectorwren/prunebox:develop
     container_name: prunebox-dev
     restart: unless-stopped
     ports:

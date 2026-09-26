@@ -6,7 +6,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ghcr.io/REDACTED/prunebox
+  IMAGE_NAME: ghcr.io/vectorwren/prunebox
 
 jobs:
   # Gracefully skip if triggered on wrong branch

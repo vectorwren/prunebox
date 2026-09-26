@@ -10,18 +10,18 @@ fi
 
 # Login to GitHub Container Registry
 echo "Logging in to GitHub Container Registry..."
-echo "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" | docker login ghcr.io -u REDACTED --password-stdin
+echo "${GITHUB_TOKEN:?set GITHUB_TOKEN}" | docker login ghcr.io -u vectorwren --password-stdin
 
 echo "Building Prunebox Release $VERSION..."
 
 # Build image for GitHub Container Registry
-docker build -t ghcr.io/REDACTED/prunebox:$VERSION -t ghcr.io/REDACTED/prunebox:latest .
+docker build -t ghcr.io/vectorwren/prunebox:$VERSION -t ghcr.io/vectorwren/prunebox:latest .
 
 echo "✅ Built image:"
-echo "  - ghcr.io/REDACTED/prunebox:$VERSION"
+echo "  - ghcr.io/vectorwren/prunebox:$VERSION"
 echo ""
 echo "Pushing to GitHub Container Registry..."
-docker push ghcr.io/REDACTED/prunebox:$VERSION
-docker push ghcr.io/REDACTED/prunebox:latest
+docker push ghcr.io/vectorwren/prunebox:$VERSION
+docker push ghcr.io/vectorwren/prunebox:latest
 
 echo "✅ Release $VERSION pushed successfully!"

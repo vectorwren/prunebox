@@ -46,7 +46,7 @@ export default function DeployPage() {
           </CardHeader>
           <CardContent className="space-y-4">
             <ol className="list-decimal list-inside space-y-2 text-sm">
-              <li>Clone: <code className="bg-muted px-2 py-1 rounded break-all">git clone https://github.com/REDACTED/prunebox.git</code></li>
+              <li>Clone: <code className="bg-muted px-2 py-1 rounded break-all">git clone https://github.com/vectorwren/prunebox.git</code></li>
               <li>Copy env file: <code className="bg-muted px-2 py-1 rounded break-all">cp .env.example .env</code></li>
               <li>Edit <code className="bg-muted px-2 py-1 rounded break-all">.env</code> with your values (see below)</li>
               <li>Run: <code className="bg-muted px-2 py-1 rounded break-all">docker-compose up -d</code></li>
@@ -70,7 +70,7 @@ export default function DeployPage() {
           <CardContent className="space-y-4">
             <div className="bg-muted p-4 rounded-lg">
               <code className="text-sm break-all">
-                docker pull ghcr.io/REDACTED/prunebox:latest
+                docker pull ghcr.io/vectorwren/prunebox:latest
               </code>
             </div>
             <p className="text-sm text-muted-foreground">
@@ -218,10 +218,10 @@ export default function DeployPage() {
               <p className="text-sm text-muted-foreground mb-4">
                 Get the source code, report issues, or contribute
               </p>
-              <Link href="https://github.com/REDACTED/prunebox" target="_blank" rel="noopener noreferrer">
+              <Link href="https://github.com/vectorwren/prunebox" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" className="w-full">
                   <Copy className="mr-2 h-4 w-4" />
-                  github.com/REDACTED/prunebox
+                  github.com/vectorwren/prunebox
                 </Button>
               </Link>
             </CardContent>

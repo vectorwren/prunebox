@@ -14,7 +14,7 @@
 ### Option 2: Build from Source
 
 ```bash
-git clone https://github.com/REDACTED/prunebox.git
+git clone https://github.com/vectorwren/prunebox.git
 cd prunebox
 docker-compose -f docker-compose.production.yml up -d
 ```
@@ -158,5 +158,5 @@ docker-compose -f docker-compose.production.yml up -d
 ## Support
 
 For issues or questions:
-- GitHub: https://github.com/REDACTED/prunebox
+- GitHub: https://github.com/vectorwren/prunebox
 - Documentation: See `/docs` folder in the repository

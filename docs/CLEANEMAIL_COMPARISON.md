@@ -531,7 +531,7 @@ For users considering switching from CleanEmail to Prunebox:
 
 **Current Version:** v0.2.4
 **Last Updated:** 2026-03-08
-**Repository:** https://github.com/REDACTED/prunebox
+**Repository:** https://github.com/vectorwren/prunebox
 **License:** Private (Closed Source)
 
 **Active Development:**

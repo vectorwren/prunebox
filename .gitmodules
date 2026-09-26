@@ -1,4 +1,4 @@
 [submodule "lazydave"]
 	path = lazydave
-	url = https://github.com/REDACTED/lazydave
+	url = https://github.com/vectorwren/lazydave
 	branch = feature/ouroboros

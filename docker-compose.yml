@@ -3,7 +3,7 @@
 
 services:
   prunebox:
-    image: ghcr.io/REDACTED/prunebox:latest
+    image: ghcr.io/vectorwren/prunebox:latest
     container_name: prunebox
     restart: unless-stopped
     ports:
